@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import store from '../data/store';
 
 const RequestForm = ({ destinations, onRequestCreated }) => {
     const [destinationId, setDestinationId] = useState('');
@@ -13,17 +14,12 @@ const RequestForm = ({ destinations, onRequestCreated }) => {
 
         setLoading(true);
         try {
-            const res = await fetch('/api/request', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    id_usuario: 1, 
-                    id_destino: parseInt(destinationId),
-                    programar_manana: isTomorrow,
-                    pasajeros: passengerCount
-                })
+            const data = await store.submitRequest({
+                id_usuario: 1,
+                id_destino: parseInt(destinationId),
+                programar_manana: isTomorrow,
+                pasajeros: passengerCount,
             });
-            const data = await res.json();
             setMessage(data.message);
             onRequestCreated();
         } catch (error) {

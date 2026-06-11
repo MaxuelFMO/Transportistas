@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import store from '../../data/store';
 
 const SettingsForm = ({ onSettingsUpdated }) => {
     const [startTime, setStartTime] = useState('');
@@ -12,8 +13,7 @@ const SettingsForm = ({ onSettingsUpdated }) => {
 
     const fetchSettings = async () => {
         try {
-            const res = await fetch('/api/settings');
-            const data = await res.json();
+            const data = await store.getSettings();
             setStartTime(data.start_time);
             setEndTime(data.end_time);
         } catch (error) {
@@ -25,12 +25,7 @@ const SettingsForm = ({ onSettingsUpdated }) => {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await fetch('/api/settings', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ start_time: startTime, end_time: endTime })
-            });
-            const data = await res.json();
+            const data = await store.updateSettings(startTime, endTime);
             setMessage(data.message);
             if (onSettingsUpdated) onSettingsUpdated();
         } catch (error) {

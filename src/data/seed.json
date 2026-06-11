@@ -1,0 +1,36 @@
+{
+  "usuarios": [
+    { "id_usuario": 1, "nombre": "Admin", "rol": "USER" }
+  ],
+  "destinos": [
+    { "id_destino": 1, "nombre": "Punto A" },
+    { "id_destino": 2, "nombre": "Punto B" },
+    { "id_destino": 3, "nombre": "Punto C" },
+    { "id_destino": 4, "nombre": "Punto D" }
+  ],
+  "vehiculos": [
+    { "id_vehiculo": 1, "placa": "ABC-101", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 2, "placa": "ABC-102", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 3, "placa": "ABC-103", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 4, "placa": "ABC-104", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 5, "placa": "ABC-105", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 6, "placa": "ABC-106", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 7, "placa": "ABC-107", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 8, "placa": "ABC-108", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 9, "placa": "ABC-109", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 },
+    { "id_vehiculo": 10, "placa": "ABC-110", "capacidad_max": 4, "id_conductor": null, "last_reset": 0 }
+  ],
+  "solicitudes": [],
+  "asignaciones": [],
+  "settings": {
+    "start_time": "08:00:00",
+    "end_time": "16:00:00"
+  },
+  "counters": {
+    "id_usuario": 1,
+    "id_destino": 4,
+    "id_vehiculo": 10,
+    "id_solicitud": 0,
+    "id_asignacion": 0
+  }
+}

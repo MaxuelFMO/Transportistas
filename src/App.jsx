@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import VehicleGrid from './vista/VehicleGrid';
 import RequestForm from './vista/RequestForm';
 import SettingsForm from './vista/componentes/SettingsForm';
+import store from './data/store';
 
 function App() {
     const [data, setData] = useState({ vehicles: [], assignments: [], destinations: [] });
@@ -10,12 +11,9 @@ function App() {
 
     const fetchData = async () => {
         try {
-            const res = await fetch('/api/dashboard');
-            const json = await res.json();
+            const json = await store.getDashboardData();
             setData(json);
-            
-            const settingsRes = await fetch('/api/settings');
-            const settingsJson = await settingsRes.json();
+            const settingsJson = await store.getSettings();
             setSettings(settingsJson);
         } catch (error) {
             console.error('Error fetching data:', error);

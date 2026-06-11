@@ -1,15 +1,12 @@
 import React from 'react';
 import SeatIcon from './SeatIcon';
+import store from '../data/store';
 
 const VehicleGrid = ({ vehicles, assignments, destinations, onReset }) => {
     const handleReset = async (id_vehiculo) => {
         const fecha = new Date().toISOString().split('T')[0];
         try {
-            await fetch('/api/vehicles/reset', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id_vehiculo, fecha })
-            });
+            await store.resetVehicle(id_vehiculo, fecha);
             if (onReset) onReset();
         } catch (error) {
             console.error('Error resetting vehicle:', error);
